@@ -2,7 +2,6 @@ import { Color, Key, MouseButton, Vector3 } from '@ringozz/godot';
 import { BoxMesh } from '@ringozz/godot/BoxMesh';
 import { BoxShape3D } from '@ringozz/godot/BoxShape3D';
 import { Camera3D } from '@ringozz/godot/Camera3D';
-import { CanvasLayer } from '@ringozz/godot/CanvasLayer';
 import { CollisionShape3D } from '@ringozz/godot/CollisionShape3D';
 import { CylinderMesh } from '@ringozz/godot/CylinderMesh';
 import { CylinderShape3D } from '@ringozz/godot/CylinderShape3D';
@@ -15,7 +14,6 @@ import { InputEventMouseMotion } from '@ringozz/godot/InputEventMouseMotion';
 import { Label } from '@ringozz/godot/Label';
 import { Label3D } from '@ringozz/godot/Label3D';
 import { MeshInstance3D } from '@ringozz/godot/MeshInstance3D';
-import { Panel } from '@ringozz/godot/Panel';
 import { PhysicsMaterial } from '@ringozz/godot/PhysicsMaterial';
 import { RigidBody3D } from '@ringozz/godot/RigidBody3D';
 import { SceneTree } from '@ringozz/godot/SceneTree';
@@ -24,19 +22,11 @@ import { SphereShape3D } from '@ringozz/godot/SphereShape3D';
 import { StandardMaterial3D } from '@ringozz/godot/StandardMaterial3D';
 import { StaticBody3D } from '@ringozz/godot/StaticBody3D';
 import { WorldEnvironment } from '@ringozz/godot/WorldEnvironment';
-import { createPortal, useSignal, type ComponentProps } from '@ringozz/react-godot';
+import { useSignal, type ComponentProps } from '@ringozz/react-godot';
 import { useRef, useState, type ReactElement } from 'react';
 
 const tree = Engine.getMainLoop() as SceneTree;
 const root = tree.root;
-
-// Demo-owned 2D overlay layer: portal target, never managed by React.
-const uiLayer = (globalThis as any).__uiLayer ??= (() => {
-  const layer = new CanvasLayer();
-  layer.layer = 10;
-  root.addChild(layer);
-  return layer;
-})();
 
 function PhysBody({ color, emission, shape, material, children, ...rest }: {
   color: Color | number[];
@@ -60,30 +50,7 @@ function PhysBody({ color, emission, shape, material, children, ...rest }: {
   );
 }
 
-function Hud() {
-  const [tick, setTick] = useState(0);
-  const last = useRef(0);
-
-  // Lives in the portal subtree: this signal connects on mount and
-  // disconnects when the portal is unmounted.
-  useSignal(tree.processFrame, () => {
-    const s = Math.floor(performance.now() / 1000);
-    if (s !== last.current) {
-      last.current = s;
-      setTick(s);
-    }
-  });
-
-  return (
-    <Panel anchorLeft={0} anchorTop={0} anchorRight={0} anchorBottom={0} position={[16, 16]} size={[300, 128]}>
-      <Label text="Portal HUD" position={[14, 10]} size={[272, 36]} />
-      <Label text={`tick ${tick}`} position={[14, 48]} size={[272, 28]} />
-      <Label text="drag: orbit camera · Space: toggle HUD" position={[14, 82]} size={[272, 36]} />
-    </Panel>
-  );
-}
-
-export function DemoApp() {
+export function App() {
   const cameraRef = useRef<Camera3D>(null);
   const [showHud, setShowHud] = useState(true);
 
@@ -187,7 +154,6 @@ export function DemoApp() {
         </MeshInstance3D>
         <PhysicsMaterial attach="physicsMaterialOverride" friction={1} bounce={0.3} />
       </StaticBody3D>
-      {showHud && createPortal(<Hud />, uiLayer)}
     </>
   )
 }

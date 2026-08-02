@@ -5,7 +5,7 @@ import { createRoot } from '@ringozz/react-godot';
 import { SceneTree } from '@ringozz/godot/SceneTree';
 import { MSAA } from '@ringozz/godot/Viewport';
 import { createElement } from 'react';
-import { DemoApp } from './DemoApp.tsx';
+import { App } from './App.tsx';
 
 const tree = Engine.getMainLoop() as SceneTree;
 const root = tree.root;
@@ -16,7 +16,7 @@ root.hdrOutputRequested = true;
 
 // ── React render ──
 const { render, unmount } = createRoot(root);
-const runReact = () => render(createElement(DemoApp));
+const runReact = () => render(createElement(App));
 runReact().then(() => runGodot(undefined, unmount));
 
 // ── Dev mode ──
