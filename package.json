@@ -1,5 +1,7 @@
 {
   "name": "godot-demo",
+  "description": "A demo project for @ringozz/react-godot",
+  "author": "Vladimir Davidovich",
   "private": true,
   "version": "0.0.0",
   "type": "module",
