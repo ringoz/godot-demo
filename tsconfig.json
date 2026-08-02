@@ -3,7 +3,7 @@
     "module": "esnext",
     "target": "es2025",
     "jsx": "react-jsx",
-    //"jsxImportSource": "@ringozz/react-godot",
+    "jsxImportSource": "@ringozz/react-godot",
     "rewriteRelativeImportExtensions": true,
     "erasableSyntaxOnly": true,
     "verbatimModuleSyntax": true,

@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "demo (Web)",
+      "type": "editor-browser",
+      "request": "launch",
+      "webRoot": "${workspaceFolder}",
+      "enableContentValidation": false,
+      "url": "http://localhost:5173"
+    }
+  ]
+}
