@@ -1,7 +1,17 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es2025",
+    "jsx": "react-jsx",
+    //"jsxImportSource": "@ringozz/react-godot",
+    "rewriteRelativeImportExtensions": true,
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true,
+    "types": [
+      "vite/client"
+    ]
+  },
+  "include": [
+    "src"
   ]
 }
