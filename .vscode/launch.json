@@ -7,7 +7,7 @@
       "request": "launch",
       "webRoot": "${workspaceFolder}",
       "enableContentValidation": false,
-      "url": "http://localhost:5173"
+      "url": "http://localhost:3000"
     }
   ]
 }
