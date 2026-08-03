@@ -7,16 +7,12 @@ import { MSAA } from '@ringozz/godot/Viewport';
 import { createElement } from 'react';
 import { App } from './App.tsx';
 
+import.meta.env?.DEV && initDebug();
+
 const tree = Engine.getMainLoop() as SceneTree;
 const root = tree.root;
-
-// ── Viewport settings ──
 root.msaa3d = MSAA.MSAA_4X;
 
-// ── React render ──
 const { render, unmount } = createRoot(root);
-const runReact = () => render(createElement(App));
-runReact().then(() => runGodot(undefined, unmount));
-
-// ── Dev mode ──
-initDebug();
+runGodot(undefined, unmount);
+await render(createElement(App));
