@@ -12,7 +12,6 @@ const root = tree.root;
 
 // ── Viewport settings ──
 root.msaa3d = MSAA.MSAA_4X;
-root.hdrOutputRequested = true;
 
 // ── React render ──
 const { render, unmount } = createRoot(root);
