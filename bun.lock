@@ -5,14 +5,13 @@
     "": {
       "name": "godot-demo",
       "dependencies": {
-        "@ringozz/godot": "^4.7.1-569",
-        "@ringozz/react-godot": "^1.0.0-569",
+        "@ringozz/react-godot": "^4.7.2-570",
         "react": "^19.2.8",
       },
       "devDependencies": {
         "@types/bun": "^1.3.14",
-        "@types/node": "^26.1.2",
-        "@types/react": "^19.2.17",
+        "@types/node": "^26.2.0",
+        "@types/react": "^19.2.18",
         "typescript": "^7.0.2",
       },
     },
@@ -20,11 +19,11 @@
   "packages": {
     "@emnapi/runtime": ["@emnapi/runtime@1.11.3", "", { "dependencies": { "tslib": "^2.4.0" } }, "sha512-Xz4Tpyki7XyrpbUK1jR1AhdAdaXyhhY4lZ3neLodmhpuWfy2PAQN5B46sAiU4liOXGLkHypn/qU+jvfWSCYYLA=="],
 
-    "@ringozz/godot": ["@ringozz/godot@4.7.1-569", "", { "optionalDependencies": { "@ringozz/godot-macos-arm64": "^4.7.1-569", "@ringozz/godot-web-wasm32": "^4.7.1-569", "@ringozz/godot-windows-x86_64": "^4.7.1-569" }, "peerDependencies": { "@types/bun": "*" } }, "sha512-Xj2pu/Gi2bI0y3cXYc0IwNDdK0qYkiLyOPrIP607q0z26FSaIhexI+l+Ezjqjd3emlCk7jkSJHzFzmzmwJtigw=="],
+    "@ringozz/godot": ["@ringozz/godot@4.7.2-570", "", { "optionalDependencies": { "@ringozz/godot-macos-arm64": "^4.7.2-570", "@ringozz/godot-web-wasm32": "^4.7.2-570", "@ringozz/godot-windows-x86_64": "^4.7.2-570" }, "peerDependencies": { "@types/bun": "*" } }, "sha512-frjDDzwwnrS1WfaKWjbyjEcBXAjAfl3rOHhq6rZ4XM8+Wu2TINL5SqR92MfFKGEPtkupK4fLTuJMJ09HXPNnXw=="],
 
-    "@ringozz/godot-web-wasm32": ["@ringozz/godot-web-wasm32@4.7.1-569", "", { "dependencies": { "@emnapi/runtime": "^1.11.3" } }, "sha512-vwpcz9AV5IGusVPbtlFT8/SAxua61ctaP3TNJaNUE21wfjtfbr8+FfroaZOTFQBzh4vIERSsfAob7gpvIF9tKQ=="],
+    "@ringozz/godot-web-wasm32": ["@ringozz/godot-web-wasm32@4.7.2-570", "", { "dependencies": { "@emnapi/runtime": "^1.11.3" } }, "sha512-KvOqyaf078wmiQQ9laVrekDfbGpKGXfI47VgN3lhMECB/5Sg1wh0wc3EGugbjhLSLOA6bL70dMNAixVtGvYwXA=="],
 
-    "@ringozz/react-godot": ["@ringozz/react-godot@1.0.0-569", "", { "dependencies": { "@ringozz/godot": "^4.7.1-569", "@types/react-reconciler": "^0.33.0", "react-reconciler": "^0.33.0" }, "peerDependencies": { "@types/react": "^19.2.0", "react": "^19.2.0" } }, "sha512-L2FI+HWpE26r9IQT2mChTZXJxNDHQw67fWOsMceWFi0FQswwIYMA48l6QuRWPG9beVJca6/M1AN5xxwxdYplJQ=="],
+    "@ringozz/react-godot": ["@ringozz/react-godot@4.7.2-570", "", { "dependencies": { "@ringozz/godot": "^4.7.2-570", "@types/react-reconciler": "^0.33.0", "react-reconciler": "^0.33.0" }, "peerDependencies": { "@types/react": "^19.2.0", "react": "^19.2.0" } }, "sha512-yPMxKi9MD6eid4M+ZJy9Yx/18etT9rydDN58yCzrEUxCNkL+K/jNGUNkMKwDlBoGjQmh29lqQ9urldUgbJzDdg=="],
 
     "@types/bun": ["@types/bun@1.3.14", "", { "dependencies": { "bun-types": "1.3.14" } }, "sha512-h1hFqFVcvAvD9j9K7ZW7vd82aSA+rTdznZa+5bwvCwqSB1jmmfLcbIWhOLx1/+boy/xmjgCs/OMUL8hRJSmnPw=="],
 
