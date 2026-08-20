@@ -7,7 +7,7 @@ import { MSAA } from '@ringozz/godot/Viewport';
 import { createElement } from 'react';
 import { App } from './App.tsx';
 
-if (import.meta.env?.DEV) {
+if (process.env.NODE_ENV === 'development') {
   initDebug();
 }
 
