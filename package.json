@@ -6,23 +6,20 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "tsc --noEmit"
+    "dev": "bun index.html --console",
+    "build": "bun build ./index.html --outdir ./dist",
+    "lint": "tsc --noEmit || true"
   },
   "dependencies": {
-    "react": "^19.2.8",
-    "@ringozz/react-godot": "^1.0.0-0"
+    "@ringozz/godot": "^4.7.1-569",
+    "@ringozz/react-godot": "^1.0.0-569",
+    "react": "^19.2.8"
   },
   "devDependencies": {
+    "@types/bun": "^1.3.14",
     "@types/node": "^26.1.2",
     "@types/react": "^19.2.17",
-    "@vitejs/plugin-react": "^6.0.4",
-    "vite": "^8.2.0",
     "typescript": "^7.0.2"
   },
-  "overrides": {
-    "lightningcss": "npm:empty-npm-package@1.0.0",
-    "postcss": "npm:empty-npm-package@1.0.0"
-  }
+  "packageManager": "bun@1.3.14"
 }

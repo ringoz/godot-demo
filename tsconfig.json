@@ -7,9 +7,10 @@
     "rewriteRelativeImportExtensions": true,
     "erasableSyntaxOnly": true,
     "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
     "types": [
-      "node",
-      "vite/client"
+      "bun",
+      "@ringozz/godot/assets"
     ]
   },
   "include": [

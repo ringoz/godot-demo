@@ -1,0 +1,8 @@
+{
+  "name": "Godot Demo",
+  "description": "A 3D physics demo application built with @ringozz/react-godot and Godot Engine",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

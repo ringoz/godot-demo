@@ -1,0 +1,4 @@
+preload = ["@ringozz/godot/preload"]
+
+[serve.static]
+plugins = ["@ringozz/godot/preload"]

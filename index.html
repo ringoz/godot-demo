@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
     <title>godot-demo</title>
     <style>
@@ -17,13 +17,6 @@
   <body>
     <canvas class="app" id="canvas" onclick="window.focus()" oncontextmenu="event.preventDefault()" ongesturestart="event.preventDefault()" tabindex="-1"></canvas>
     <figure class="app" id="splash"></figure>
-    <script type="module">
-      const splash = document.getElementById('splash');
-      splash.style.backgroundImage = `url('${document.querySelector("link[rel*='icon']").href}')`;
-      await import('./src/index.ts');
-      splash.ontransitionend = () => splash.parentNode?.removeChild(splash);
-      splash.style['transition'] = 'opacity 0.5s ease-in';
-      splash.style['opacity'] = '0';
-    </script>
+    <script type="module" src="./src/index.html.ts"></script>
   </body>
 </html>
