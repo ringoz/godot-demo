@@ -7,7 +7,9 @@ import { MSAA } from '@ringozz/godot/Viewport';
 import { createElement } from 'react';
 import { App } from './App.tsx';
 
-import.meta.env?.DEV && initDebug();
+if (import.meta.env?.DEV) {
+  initDebug();
+}
 
 const tree = Engine.getMainLoop() as SceneTree;
 const root = tree.root;
