@@ -11,7 +11,7 @@
     "lint": "tsc --noEmit && oxlint"
   },
   "dependencies": {
-    "@ringozz/react-godot": "^4.7.2-583",
+    "@ringozz/react-godot": "^4.7.2-592",
     "react": "^19.2.8"
   },
   "devDependencies": {

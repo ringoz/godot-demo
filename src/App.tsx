@@ -1,4 +1,5 @@
-import { Color, Key, MouseButton, Vector3 } from '@ringozz/godot';
+import { Key, MouseButton } from '@ringozz/godot';
+import type { Color, Vector3 } from '@ringozz/godot';
 import { BoxMesh } from '@ringozz/godot/BoxMesh';
 import { BoxShape3D } from '@ringozz/godot/BoxShape3D';
 import { Camera3D } from '@ringozz/godot/Camera3D';
@@ -33,42 +34,47 @@ const root = tree.root;
 interface SpawnedObject {
   id: string;
   type: 'box' | 'sphere' | 'cylinder' | 'capsule';
-  position: [number, number, number];
-  color: [number, number, number];
-  emission?: [number, number, number];
+  position: Vector3;
+  color: Color;
+  emission?: Color;
   bounce: number;
 }
 
-const THEMES = [
+const THEMES: {
+  name: string;
+  bgColor: Color;
+  sunColor: Color;
+  sunRot: Vector3;
+}[] = [
   {
     name: 'Deep Space Nebula',
-    bgColor: [0.04, 0.08, 0.2] as [number, number, number],
-    sunColor: [0.2, 0.8, 1.0] as [number, number, number],
-    sunRot: [-0.8, 0.5, 0] as [number, number, number],
+    bgColor: [0.04, 0.08, 0.2],
+    sunColor: [0.2, 0.8, 1.0],
+    sunRot: [-0.8, 0.5, 0],
   },
   {
     name: 'Sunset Gold',
-    bgColor: [0.22, 0.1, 0.05] as [number, number, number],
-    sunColor: [1.0, 0.6, 0.2] as [number, number, number],
-    sunRot: [-0.5, 1.2, 0] as [number, number, number],
+    bgColor: [0.22, 0.1, 0.05],
+    sunColor: [1.0, 0.6, 0.2],
+    sunRot: [-0.5, 1.2, 0],
   },
   {
     name: 'Cyberpunk Neon',
-    bgColor: [0.12, 0.02, 0.18] as [number, number, number],
-    sunColor: [1.0, 0.2, 0.8] as [number, number, number],
-    sunRot: [-1.0, -0.4, 0] as [number, number, number],
+    bgColor: [0.12, 0.02, 0.18],
+    sunColor: [1.0, 0.2, 0.8],
+    sunRot: [-1.0, -0.4, 0],
   },
   {
     name: 'Studio Clean',
-    bgColor: [0.35, 0.38, 0.42] as [number, number, number],
-    sunColor: [0.95, 0.95, 0.9] as [number, number, number],
-    sunRot: [-0.9, 0.3, 0] as [number, number, number],
+    bgColor: [0.35, 0.38, 0.42],
+    sunColor: [0.95, 0.95, 0.9],
+    sunRot: [-0.9, 0.3, 0],
   },
 ];
 
 function PhysBody({ color, emission, shape, material, children, ...rest }: {
-  color: Color | number[];
-  emission?: Color | number[];
+  color: Color;
+  emission?: Color;
   shape: ReactElement;
   material?: ReactElement;
 } & ComponentProps<typeof RigidBody3D>) {
@@ -105,14 +111,14 @@ export function App() {
   const zoom = useRef(8);
   const zoomMin = 2.5;
   const zoomMax = 22;
-  const UP = new Vector3(0, 1, 0);
-  const TARGET = new Vector3(0, 1, 0);
+  const UP: Vector3 = [0, 1, 0];
+  const TARGET: Vector3 = [0, 1, 0];
 
   const spawnObject = (type: 'box' | 'sphere' | 'cylinder' | 'capsule') => {
     const rx = (Math.random() - 0.5) * 3;
     const rz = (Math.random() - 0.5) * 3;
     const ry = 4 + Math.random() * 2;
-    const randomColor: [number, number, number] = [
+    const randomColor: Color = [
       0.3 + Math.random() * 0.7,
       0.3 + Math.random() * 0.7,
       0.3 + Math.random() * 0.7,
@@ -141,8 +147,8 @@ export function App() {
 
   useSignal(root.windowInput, (event) => {
     if (event instanceof InputEventMouseMotion && isDragging.current) {
-      dx.current += event.relative.x;
-      dy.current += event.relative.y;
+      dx.current += event.relative[0];
+      dy.current += event.relative[1];
     } else if (event instanceof InputEventMouseButton) {
       if (event.pressed) {
         if (event.buttonIndex === MouseButton.MOUSE_BUTTON_LEFT) {
@@ -193,7 +199,7 @@ export function App() {
     const cx = zoom.current * Math.cos(pitch.current) * Math.sin(yaw.current);
     const cy = zoom.current * Math.sin(pitch.current) + 1;
     const cz = zoom.current * Math.cos(pitch.current) * Math.cos(yaw.current);
-    camera.position = new Vector3(cx, cy, cz);
+    camera.position = [cx, cy, cz];
     camera.lookAt(TARGET, UP);
   });
 
