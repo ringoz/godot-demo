@@ -8,18 +8,17 @@
   "scripts": {
     "dev": "bun index.html --console",
     "build": "bun build ./index.html --outdir ./dist",
-    "lint": "tsc --noEmit && oxlint"
+    "lint": "bun check && oxlint"
   },
   "dependencies": {
-    "@ringozz/react-godot": "^4.7.2-646",
+    "@ringozz/react-godot": "^4.7.2-661",
     "react": "^19.3.0"
   },
   "devDependencies": {
-    "@types/bun": "^1.4.2",
+    "@types/bun": "^1.4.3",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
-    "oxlint": "^1.87.0",
-    "typescript": "^7.0.2"
+    "oxlint": "^1.88.0"
   },
-  "packageManager": "bun@1.4.2"
+  "packageManager": "bun@1.4.3"
 }
